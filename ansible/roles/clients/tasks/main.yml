@@ -1,5 +1,5 @@
 ---
-- name: install softs on CentOS
+- name: install softs
   yum:
     name:
       - chrony
