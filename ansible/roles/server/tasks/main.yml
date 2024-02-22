@@ -1,0 +1,47 @@
+---
+- name: install softs on CentOS
+  yum:
+    name: 
+         - chrony
+         - ipa-server
+    state: latest
+    update_cache: true
+
+- name: upgrade nss
+  yum: 
+    name: nss 
+    state: latest
+
+- name: disable firewalld
+  service:
+    name: firewalld
+    state: stopped
+    enabled: false
+
+- name: disable SElinux
+  selinux:
+    state: disabled
+
+- name: disable SElinux now
+  shell: setenforce 0
+
+- name: Set up timezone
+  timezone:
+    name: "Europe/Moscow"
+
+- name: enable chrony
+  service:
+    name: chronyd
+    state: restarted
+    enabled: true
+
+- name: change /etc/hosts
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+
+- name: add host to ipa-server
+  shell: echo -e "no /n yes" | ipa-server-install -n otus.lan --hostname=ipa.otus.lan -p 12345678 -a 12345678 -r OTUS.LAN -U

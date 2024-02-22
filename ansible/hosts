@@ -1,0 +1,4 @@
+ipa ansible_host=192.168.50.10 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/ipa/virtualbox/private_key
+[clients]
+client1 ansible_host=192.168.50.11 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/client1/virtualbox/private_key
+client2 ansible_host=192.168.50.12 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/client2/virtualbox/private_key

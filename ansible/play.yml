@@ -1,0 +1,16 @@
+---
+- hosts: ipa
+  become:
+    true
+  become_method:
+    sudo
+  roles:
+        - server
+
+- hosts: clients
+  become:
+    true
+  become_method:
+    sudo
+  roles:
+        - clients

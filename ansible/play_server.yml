@@ -1,0 +1,8 @@
+---
+- hosts: ipa.otus.lan
+  become:
+    true
+  become_method:
+    sudo
+  roles:
+        - server
