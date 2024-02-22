@@ -43,5 +43,5 @@
     group: root
     mode: 0644
 
-- name: configure the  the ipa-server
+- name: configure the ipa-server
   shell: echo -e "no /n yes" | ipa-server-install -n otus.lan --hostname=ipa.otus.lan -p 12345678 -a 12345678 -r OTUS.LAN -U
