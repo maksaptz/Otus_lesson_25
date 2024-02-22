@@ -1,8 +1,0 @@
----
-- hosts: clients
-  become:
-    true
-  become_method:
-    sudo
-  roles:
-        - clients
